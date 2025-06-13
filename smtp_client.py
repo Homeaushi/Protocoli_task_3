@@ -40,7 +40,7 @@ def create_email(config, message_body):
 
     for attachment in config['attachments']:
         if not os.path.isfile(attachment):
-            print(f"Warning: Attachment file {attachment} not found. Skipping.")
+            print(f"Файл с вложениями не найден")
             continue
 
         with open(attachment, 'rb') as f:
@@ -68,9 +68,9 @@ def send_email(config, msg):
                 config['recipients'],
                 msg.as_string()
             )
-        print("Email sent successfully!")
+        print("Сообщение отправлено")
     except Exception as e:
-        print(f"Failed to send email: {str(e)}")
+        print(f"Ошибка при отправке сообщения")
         raise
 
 
